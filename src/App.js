@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import React, {Component} from 'react'
+import { Route, Switch } from 'react-router-dom'
 import './App.css';
+import ToDoPageManager from "features/todo/components/ToDoPageManager.js";
+import PostPageManager from "features/post/components/PostPageManager.js";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {o
+  constructor (props) {
+    super(props);
+  }
+  render () {
+    return (
+      <div>
+        <div className='App'>
+          <Switch>
+            <Route exact path='/' render={() => (
+              <ToDoPageManager/>
+            )} />
+          </Switch>
+          <Switch>
+            <Route exact path='/post' render={() => (
+              <PostPageManager/>
+            )} />
+          </Switch>
+        </div>
+
+      </div>
+    )
+  }
 }
 
 export default App;
